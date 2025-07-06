@@ -50,25 +50,84 @@
                 <div class="desctext" style="font-family: Arial; font-size: large;">
                   <span class="montreg"><img src="https://raw.githubusercontent.com/umborcl/slipp/refs/heads/main/pics/men.jpg" alt="Men's slippers" /></span>
                 </div>
-                <div class="tab-wrap" style="font-family: Arial; font-size: large;">
-                  <input id="tab1" name="tabGroup1" class="tab" checked type="radio" />
-                  <label for="tab1" id="centermoi"><span>About Us</span></label>
-                  <input id="tab2" name="tabGroup1" class="tab" type="radio" />
-                  <label for="tab2" id="centermoi"><span>Postage</span></label>
-                  <input id="tab3" name="tabGroup1" class="tab" type="radio" />
-                  <label for="tab3" id="centermoi"><span>Returns</span></label>
-                  <div class="tabcontent">
-                    We are a family run business that pride ourselves on excellent customer service.<br /><br />
-                    We have been providing good quality affordable slippers to our customers since 2004.
-                  </div>
-                  <div class="tabcontent">
-                    <br />
-                    <p>All of our footware is sent tracked and should be with you within a few days of your purchase, please do contact us if your footware has not arrived within a week of purchase.</p><br /><br />
-                  </div>
-                  <div class="tabcontent"> <!-- instead of tab_content -->
-  We offer a no quibble guarantee, if you are unhappy with your purchase simply return it...
+                <style>
+.tab-wrap input[type="radio"]:checked + label {
+  background: white !important;
+  border-bottom: 1px solid white !important;
+  position: relative !important;
+  top: 1px !important;
+}
+
+.tab-wrap #tab1:checked ~ .tabcontent:nth-of-type(1),
+.tab-wrap #tab2:checked ~ .tabcontent:nth-of-type(2),
+.tab-wrap #tab3:checked ~ .tabcontent:nth-of-type(3) {
+  display: block !important;
+}
+  /* Hide all tab content by default */
+  .tabcontent {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  /* Hide radio inputs */
+  input[type="radio"].tab {
+    display: none;
+  }
+
+  /* Style labels as tabs */
+  label {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin-right: -1px;
+    background: #eee;
+    font-family: Arial, sans-serif;
+    font-size: large;
+    user-select: none;
+  }
+
+  /* Highlight the label of the checked tab */
+  input[type="radio"].tab:checked + label {
+    background: white;
+    border-bottom: 1px solid white;
+    position: relative;
+    top: 1px;
+  }
+
+  /* Show the content div matching the checked input */
+  #tab1:checked ~ .tabcontent:nth-of-type(1),
+  #tab2:checked ~ .tabcontent:nth-of-type(2),
+  #tab3:checked ~ .tabcontent:nth-of-type(3) {
+    display: block;
+  }
+</style>
+
+<div class="tab-wrap">
+  <input id="tab1" name="tabGroup1" class="tab" type="radio" checked />
+  <label for="tab1"><span>About Us</span></label>
+
+  <input id="tab2" name="tabGroup1" class="tab" type="radio" />
+  <label for="tab2"><span>Postage</span></label>
+
+  <input id="tab3" name="tabGroup1" class="tab" type="radio" />
+  <label for="tab3"><span>Returns</span></label>
+
+  <div class="tabcontent">
+    <br>We are a family run business that pride ourselves on excellent customer service.<br /><br />
+    We have been providing good quality affordable slippers to our customers since 2004.<br>
+  </div>
+
+  <div class="tabcontent">
+    <p><br>All of our footwear is sent tracked and should be with you within a few days of your purchase, please do contact us if your footwear has not arrived within a week of purchase.<br></p>
+  </div>
+
+  <div class="tabcontent">
+    <br>We offer a no quibble guarantee, if you are unhappy with your purchase simply return it...<br>
+  </div>
 </div>
-                </div>
               </div>
             </div>
             <div class="category-products"></div>
