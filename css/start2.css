@@ -6,6 +6,40 @@
 .desctext ul {display: flex;justify-content: center; flex-direction:column}
 .desctext li {flex: 1}
 
+.tabcontent {
+  display: none;
+  margin-top: 1em;
+  font-family: Arial, sans-serif;
+  font-size: large;
+}
+
+/* Show the content corresponding to the checked tab */
+#tab1:checked ~ label[for="tab1"] ~ .tabcontent:nth-of-type(1),
+#tab2:checked ~ label[for="tab2"] ~ .tabcontent:nth-of-type(2),
+#tab3:checked ~ label[for="tab3"] ~ .tabcontent:nth-of-type(3) {
+  display: block;
+}
+
+/* Style for labels to look like tabs */
+.tab-wrap label {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: 1px solid #ccc;
+  margin-right: -1px;
+  background: #eee;
+  display: inline-block;
+  user-select: none;
+  font-weight: bold;
+}
+
+/* Highlight the active tab label */
+#tab1:checked ~ label[for="tab1"],
+#tab2:checked ~ label[for="tab2"],
+#tab3:checked ~ label[for="tab3"] {
+  background: white;
+  border-bottom: 1px solid white;
+}
+
 
 @font-face {
     font-family: 'TeXGyreAdventorRegular';
