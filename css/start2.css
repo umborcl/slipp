@@ -6,66 +6,6 @@
 .desctext ul {display: flex;justify-content: center; flex-direction:column}
 .desctext li {flex: 1}
 
-.tab-wrap input[type="radio"]:checked + label {
-  background: white !important;
-  border-bottom: 1px solid white !important;
-  position: relative !important;
-  top: 1px !important;
-}
-
-.tab-wrap #tab1:checked ~ .tabcontent:nth-of-type(1),
-.tab-wrap #tab2:checked ~ .tabcontent:nth-of-type(2),
-.tab-wrap #tab3:checked ~ .tabcontent:nth-of-type(3) {
-  display: block !important;
-
-
-/* Hide all tab contents by default */
-.tabcontent {
-  display: none;
-  margin-top: 1em;
-  font-family: Arial, sans-serif;
-  font-size: large;
-}
-
-/* Show the tab content corresponding to the checked tab */
-#tab1:checked ~ label[for="tab1"] ~ .tabcontent:nth-of-type(1),
-#tab2:checked ~ label[for="tab2"] ~ .tabcontent:nth-of-type(2),
-#tab3:checked ~ label[for="tab3"] ~ .tabcontent:nth-of-type(3) {
-  display: block;
-}
-
-/* Style tab labels like buttons/tabs */
-.tab-wrap label {
-  cursor: pointer;
-  padding: 0.5em 1em;
-  border: 1px solid #ccc;
-  border-bottom: none;
-  background: #eee;
-  margin-right: -1px;
-  font-weight: 600;
-  user-select: none;
-  display: inline-block;
-  font-family: Arial, sans-serif;
-  font-size: large;
-  transition: background-color 0.3s;
-}
-
-/* Highlight the active tab label */
-#tab1:checked ~ label[for="tab1"],
-#tab2:checked ~ label[for="tab2"],
-#tab3:checked ~ label[for="tab3"] {
-  background: white;
-  border-bottom: 1px solid white;
-  position: relative;
-  z-index: 1;
-}
-
-/* Optional: add some hover effect */
-.tab-wrap label:hover {
-  background: #ddd;
-}
-
-
 
 @font-face {
     font-family: 'TeXGyreAdventorRegular';
@@ -157,8 +97,8 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.fontello-icon-mail:before { content: '\e802'; } /* 'î ‚' */
-.fontello-icon-basket-alt:before { content: '\e801'; } /* 'î ' */
+.fontello-icon-mail:before { content: '\e802'; } /* 'Ã® â€š' */
+.fontello-icon-basket-alt:before { content: '\e801'; } /* 'Ã® Â' */
 
 * { margin:0; padding:0; }
 
