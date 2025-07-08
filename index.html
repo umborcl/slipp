@@ -49,47 +49,75 @@
                   </div>
                 </div>
 
-                <div class="main-container col2-left-layout">
-                  <div class="main">
-                    <div class="col-main">
-                      <div class="category-image-description">
-                        <div class="desc">
-                          <div class="orglistinghead"><b>Womens 100% Leather Slip On Sandals Slippers - Ladies Black Mules - UK Seller</b></div>
-                          <div class="deschedtitle" style="font-family: Arial; font-size: large;">
-                            <div>See size guide below for a perfect fit.</div>
-                            <div>WOMEN'S NATURAL LEATHER LUXURY SLIP ON SLIPPERS - see size guide below for a perfect fit.</div>
-                            <div>These hand crafted light weight and durable leather slippers are made in Europe using locally sourced, high quality selected NATURAL LEATHER with a special perforated design range, to provide style, warmth and convenience.</div>
-                            <div>Styles for both men and women to use as comfortable slippers at home, or for casual wear outside, in the garden or on the beach. With special ecologically constructed Styrofoam soles to provide comfort and durability.</div>
-                            <div>Orthopaedic shaped for foot protection and comfort. THESE ELEGANT WOMEN'S LEATHER SLIPPERS ARE OFFERED AT THIS SUPER LOW PRICE! 100% natural leather.</div>
-                          </div>
-                          <div class="desctext" style="font-family: Arial; font-size: large;">
-                            <img src="https://umborcl.github.io/slipp/pics/women.jpg" alt="Women's Slippers" />
-                          </div>
-                          <div class="tab-wrap" style="font-family: Arial; font-size: large;">
-                            <input id="tab1" name="tabGroup1" class="tab" checked type="radio" />
-                            <label for="tab1" id="centermoi"><span>About Us</span></label>
+<style>
+  .tabcontent {
+    display: none;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-top: none;
+    font-family: Arial;
+    font-size: large;
+  }
 
-                            <input id="tab2" name="tabGroup1" class="tab" type="radio" />
-                            <label for="tab2" id="centermoi"><span>Postage</span></label>
+  input.tab {
+    display: none;
+  }
 
-                            <input id="tab3" name="tabGroup1" class="tab" type="radio" />
-                            <label for="tab3" id="centermoi"><span>Returns</span></label>
+  /* Show the content of the checked tab */
+  #tab1:checked ~ #tab1-content,
+  #tab2:checked ~ #tab2-content,
+  #tab3:checked ~ #tab3-content {
+    display: block;
+  }
 
-                            <div class="tabcontent">
-                              We are a family run business that pride ourselves on excellent customer service.<br /><br />
-                              We have been providing good quality affordable slippers to our customers since 2004.
-                            </div>
+  /* Style labels as tab buttons */
+  label[for="tab1"],
+  label[for="tab2"],
+  label[for="tab3"] {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    font-family: Arial;
+    font-size: large;
+    margin-right: 4px;
+    background: #eee;
+  }
 
-                            <div class="tabcontent">
-                              <p>
-                                All of our footware is sent tracked and should be with you within a few days of your purchase, please do contact us if your footware has not arrived within a week of purchase.
-                              </p>
-                            </div>
+  /* Highlight the active tab label */
+  #tab1:checked + label[for="tab1"],
+  #tab2:checked + label[for="tab2"],
+  #tab3:checked + label[for="tab3"] {
+    background: white;
+    border-bottom: 1px solid white;
+  }
+</style>
 
-                            <div class="tab_content">
-                              We offer a no quibble guarantee, if you are unhappy with your purchase simply return it for a refund, all of our returns are dealt with through eBay's return system.
-                            </div>
-                          </div>
+<div class="tab-wrap" role="tablist" aria-label="Product information tabs">
+  <input id="tab1" name="tabGroup1" class="tab" checked type="radio" />
+  <label for="tab1" id="centermoi" role="tab">About Us</label>
+
+  <input id="tab2" name="tabGroup1" class="tab" type="radio" />
+  <label for="tab2" id="centermoi" role="tab">Postage</label>
+
+  <input id="tab3" name="tabGroup1" class="tab" type="radio" />
+  <label for="tab3" id="centermoi" role="tab">Returns</label>
+
+  <div id="tab1-content" class="tabcontent" role="tabpanel">
+    We are a family run business that pride ourselves on excellent customer service.<br /><br />
+    We have been providing good quality affordable slippers to our customers since 2004.
+  </div>
+
+  <div id="tab2-content" class="tabcontent" role="tabpanel">
+    <p>
+      All of our footwear is sent tracked and should be with you within a few days of your purchase, please do contact us if your footwear has not arrived within a week of purchase.
+    </p>
+  </div>
+
+  <div id="tab3-content" class="tabcontent" role="tabpanel">
+    We offer a no quibble guarantee, if you are unhappy with your purchase simply return it for a refund, all of our returns are dealt with through eBay's return system.
+  </div>
+</div>
                         </div>
                       </div>
                       <div class="category-products"></div>
