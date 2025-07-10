@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
   <meta name="description" content="Women's Natural Leather Slippers | UK Seller | Comfortable & Durable" />
   <meta name="keywords" content="leather slippers, women's slippers, orthopaedic sandals, UK seller" />
   <title>Slippers4U | 100% Leather Women's Slippers</title>
-  
+
   <!-- Fonts -->
   <link rel="stylesheet" href="https://umborcl.github.io/slipp/fonts/fonts.css" />
   <style>
@@ -22,7 +22,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: myFirstFont, Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: #fff;
@@ -40,9 +40,13 @@
       margin-bottom: 20px;
     }
 
+    .logo {
+      text-align: center;
+    }
+
     .logo img {
       width: 100%;
-      max-width: 100%;
+      max-width: 300px;
       height: auto;
     }
 
@@ -51,28 +55,43 @@
       padding: 0;
       margin-top: 10px;
       display: flex;
-      gap: 20px;
+      justify-content: center;
       flex-wrap: wrap;
+      gap: 20px;
     }
 
     .nav li a {
       text-decoration: none;
       color: #005ea6;
       font-weight: bold;
+      transition: color 0.3s;
     }
 
-    .orglistinghead {
-      font-size: 1.2em;
+    .nav li a:hover {
+      text-decoration: underline;
+      color: #003f7d;
+    }
+
+    h1.orglistinghead {
+      font-size: 1.5em;
       font-weight: bold;
-      margin: 10px 0;
+      margin: 15px 0;
+      text-align: center;
     }
 
     .deschedtitle {
       margin: 10px 0;
+      text-align: center;
+    }
+
+    .desctext {
+      text-align: center;
+      margin: 20px 0;
     }
 
     .tab-wrap {
       margin-top: 30px;
+      text-align: center;
     }
 
     .tab {
@@ -90,6 +109,10 @@
       transition: background 0.3s;
     }
 
+    .tab + label:hover {
+      background: #ccc;
+    }
+
     .tab:checked + label {
       background: #fff;
       border-bottom: 2px solid #fff;
@@ -102,6 +125,7 @@
       border-top: none;
       background: #fff;
       border-radius: 0 5px 5px 5px;
+      text-align: left;
     }
 
     #tab1:checked ~ .tabcontent1,
@@ -110,26 +134,32 @@
       display: block;
     }
 
+    .sidebar {
+      margin-top: 30px;
+      text-align: center;
+    }
+
     .sidebar ul {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
     }
 
     .sidebar li {
-      margin: 10px 0;
-      text-align: center;
+      margin: 15px 0;
     }
 
     .sidebar img {
       width: 100%;
       max-width: 200px;
       height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .footer {
       text-align: center;
-      font-size: 0.9em;
-      color: #777;
+      font-size: 1em;
+      color: #555;
       margin-top: 40px;
     }
 
@@ -148,7 +178,7 @@
     <div class="header">
       <div class="logo">
         <a href="https://www.ebay.co.uk/str/Hariz-and-Family" target="_blank">
-          <center><img src="https://umborcl.github.io/slipp/pics/imgb.png" alt="Slippers4U Logo" /></center>
+          <img src="https://umborcl.github.io/slipp/pics/imgb.png" alt="Slippers4U Logo" />
         </a>
       </div>
       <ul class="nav">
@@ -160,30 +190,20 @@
 
     <!-- Main Content -->
     <div class="main">
-      <img src="https://umborcl.github.io/slipp/pics/topban.jpg" alt="Top Banner" />
+      <img src="https://umborcl.github.io/slipp/pics/topban.jpg" alt="Top Banner" style="width: 100%; height: auto;" />
 
-      <div class="orglistinghead">
-        Women's 100% Leather Slip-On Sandals Slippers – Ladies Black Mules – UK Seller
-      </div>
+      <h1 class="orglistinghead">Women's 100% Leather Slip-On Sandals Slippers – Ladies Black Mules – UK Seller</h1>
 
-      <div class="deschedtitle">
-        These handmade, lightweight and durable slippers are crafted in Europe using high-quality, natural leather with a stylish perforated design.
-      </div>
-      <div class="deschedtitle">
-        Perfect for indoor use or casual wear outdoors — from home to garden to beach.
-      </div>
-      <div class="deschedtitle">
-        Features an orthopedic shape and ecological Styrofoam sole for comfort and durability.
-      </div>
-      <div class="deschedtitle">
-        Offered at a fantastic price from a trusted UK seller. See size guide below to ensure the perfect fit.
-      </div>
+      <div class="deschedtitle">These handmade, lightweight and durable slippers are crafted in Europe using high-quality, natural leather with a stylish perforated design.</div>
+      <div class="deschedtitle">Perfect for indoor use or casual wear outdoors — from home to garden to beach.</div>
+      <div class="deschedtitle">Features an orthopedic shape and ecological Styrofoam sole for comfort and durability.</div>
+      <div class="deschedtitle">Offered at a fantastic price from a trusted UK seller. See size guide below to ensure the perfect fit.</div>
 
       <div class="desctext">
         <img src="https://umborcl.github.io/slipp/pics/women.jpg" alt="Women's Leather Slippers" />
       </div>
 
-      <!-- Tabbed Info Section -->
+      <!-- Tabs -->
       <div class="tab-wrap">
         <input id="tab1" name="tabGroup1" class="tab" checked type="radio" />
         <label for="tab1">About Us</label>
@@ -207,16 +227,32 @@
           All returns are handled through eBay’s return system for your convenience.
         </div>
       </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <ul>
+          <li>
+            <a href="https://www.ebay.co.uk/str/Hariz-and-Family/Mens-Leather-Slippers/_i.html?_storecat=3515272419" target="_blank">
+              <p>Men's Leather Slippers</p>
+              <img src="https://umborcl.github.io/slipp/pics/cat1.jpg" alt="Men's Leather Slippers" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.ebay.co.uk/str/Hariz-and-Family/Womens-Slippers/_i.html?_storecat=3515272418" target="_blank">
+              <p>Women's Slippers</p>
+              <img src="https://umborcl.github.io/slipp/pics/cat2.jpg" alt="Women's Slippers" />
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Sidebar Navigation -->
-   
     <!-- Footer -->
     <div class="footer">
       &copy; Slippers4U | All Rights Reserved
     </div>
 
-    <!-- Schema Markup for SEO -->
+    <!-- Schema Markup -->
     <div class="item_summary" vocab="https://schema.org/" typeof="Product">
       <span property="description">
         <strong>We sell a wide range of 100% leather slip-on slippers, warm sheepskin slippers, clogs for work and leisure, and summer sandals. Check out our latest offers!</strong>
