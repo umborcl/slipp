@@ -1,252 +1,92 @@
-<font rwr="1" size="4" style="font-family:Arial">
-  <style>
-    @font-face {
-      font-family: myFirstFont;
-      src: url(https://umborcl.github.io/slipp/fonts/Montserrat-Regular.ttf);
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zebra QR Generator</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  #topBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #barcodeInput {
+    flex: 1;
+    padding: 10px;
+    font-size: 18px;
+  }
+  #boxCount {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  #clearBtn {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  #qrcodeContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  #qrcodeImage {
+    max-width: 80vw;
+  }
+</style>
+</head>
+<body>
 
-    @font-face {
-      font-family: myFirstFont;
-      src: url(https://umborcl.github.io/slipp/fonts/Montserrat-Medium.ttf);
-      font-weight: bold;
-    }
-
-    div {
-      font-family: myFirstFont;
-    }
-
-    /* Tabs CSS fix */
-    .tab-wrap {
-      font-family: Arial, sans-serif;
-      font-size: large;
-      margin-top: 20px;
-    }
-
-    .tab {
-      display: none;
-    }
-
-.tab + label {
-  display: inline-block;
-  background: #ddd;
-  padding: 10px 20px;
-  margin-right: 5px;
-  cursor: pointer;
-  border-radius: 5px 5px 0 0;
-  font-weight: bold;
-  user-select: none;
-  transition: background 0.3s, box-shadow 0.3s;
-  box-shadow:
-    0 2px 2px rgba(0, 0, 0, 0.15),
-    0 4px 4px rgba(0, 0, 0, 0.1),
-    0 8px 8px rgba(0, 0, 0, 0.05);
-}
-
-.tab:checked + label {
-  background: #fff;
-  border-bottom: 2px solid #fff;
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.2),
-    0 2px 4px rgba(0, 0, 0, 0.15),
-    0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-    .tabcontent {
-      border: 1px solid #ddd;
-      border-top: none;
-      padding: 15px;
-      display: none;
-      background: #fff;
-      border-radius: 0 5px 5px 5px;
-      margin-top: -5px;
-    }
-
-    #tab1:checked ~ .tabcontent1,
-    #tab2:checked ~ .tabcontent2,
-    #tab3:checked ~ .tabcontent3 {
-      display: block;
-    }
-  </style>
-
-  <title>Slippers4u</title>
-  <table align="center" style="border-spacing:0;width:100%">
-    <tbody>
-      <tr>
-        <td>
-          <div id="ds_div">
-            <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-            <meta content="" name="description" />
-            <meta content="" name="keywords" />
-            <meta content="INDEX,FOLLOW" name="robots" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://umborcl.github.io/slipp/css/start2.css" media="all" rel="stylesheet" type="text/css" />
-            <link rel="stylesheet" target="blank" href="https://umborcl.github.io/slipp/fonts/fonts.css" type="text/css" media="screen" />
-            <div class="wrapper" style="">
-              <div class="page" style="">
-                <div class="header-container" style="font-family: Arial; font-size: large;">
-                  <div class="header">
-                    <div class="logo">
-                      <a target="_blank" href="https://www.ebay.co.uk/str/Hariz-and-Family" title="">
-                        <img alt="" src="https://umborcl.github.io/slipp/pics/imgbanner.png" />
-                      </a>
-                    </div>
-                    <ul class="nav">
-                      <li>
-                        <a target="_blank" href="https://www.ebay.co.uk/sch/slippers4u/m.html?_nkw=&amp;_armrs=1&amp;_ipg=&amp;_from=">See Our Other Items</a>
-                      </li>
-                      <li>
-                        <a target="_blank" href="https://contact.ebay.co.uk/ws/eBayISAPI.dll?ShowSellerFAQ&amp;iid=273592481048&amp;requested=slippers4u&amp;redirect=0&amp;frm=284&amp;rt=nc&amp;_trksid=p2047675.l1499&amp;ssPageName=PageSellerM2MFAQ_VI">Contact</a>
-                      </li>
-                      <li class="last">
-                        <a target="_blank" href="https://www.ebay.co.uk/str/harizandfamily">Shop Home</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="main-container col2-left-layout" style="">
-                  <div class="main" style="">
-                    <div class="col-main" style="">
-                      <img src="https://umborcl.github.io/slipp/pics/topban.jpg" alt="" style="font-family: Arial; font-size: large;" />
-                      <div class="category-image-description" style="">
-                        <div class="desc" style="">
-                          <div class="orglistinghead" style="">
-                            <b>Womens 100% Leather Slip On Sandals Slippers - Ladies Black Mules - UK Seller</b>
-                          </div>
-                          <div class="deschedtitle" style="font-family: Arial; font-size: large;">
-                            <div class="deschedtitle" style="font-family: Arial; font-size: large;">
-                              See size guide below for a perfect fit.
-                            </div>
-                            <div class="deschedtitle" style="font-family: Arial; font-size: large;">
-                              WOMEN'S NATURAL LEATHER LUXURY SLIP ON SLIPPERS - see size guide below for a perfect fit.
-                            </div>
-                            <div class="deschedtitle" style="font-family: Arial; font-size: large;">
-                              These hand crafted&nbsp; light weight and durable leather slippers are made in Europe using locally sourced, high quality selected NATURAL&nbsp; LEATHER with a special perforated design range, to provide style, warmth and convenience .
-                            </div>
-                            <div class="deschedtitle" style="font-family: Arial; font-size: large;">
-                              Styles for both men and women to use as comfortable slippers at home, or for casual wear outside, in the garden or on the beach. With special ecologically constructed Styrofoam soles to provide comfort and durability.&nbsp; &nbsp;
-                            </div>
-                            <div class="deschedtitle" style="font-family: Arial; font-size: large;">
-                              Orthopaedic shaped for foot protection and comfort. THESE&nbsp; ELEGANT&nbsp; WOMEN'S LEATHER&nbsp; SLIPPERS&nbsp; ARE OFFERED AT&nbsp; THIS SUPER LOW&nbsp; PRICE! 100% natural leather.
-                            </div>
-                          </div>
-                          <div class="desctext" style="font-family: Arial; font-size: large;">
-                            <span class="montreg"><img src="https://umborcl.github.io/slipp/pics/women.jpg" /></span>
-                          </div>
-                          &nbsp;
-
-<!-- REPLACED TABS START -->
-<div class="tab-wrap" style="font-family: Arial; font-size: large;">
-  <input id="tab1" name="tabGroup1" class="tab" checked type="radio" />
-  <label for="tab1" class="centermoi"><span>About Us</span></label>
-  <input id="tab2" name="tabGroup1" class="tab" type="radio" />
-  <label for="tab2" class="centermoi"><span>Postage</span></label>
-  <input id="tab3" name="tabGroup1" class="tab" type="radio" />
-  <label for="tab3" class="centermoi"><span>Returns</span></label>
-
-  <div class="tabcontent tabcontent1">
-    We are a family run business that pride ourselves on excellent customer service.<br /><br />
-    We have been providing good quality affordable slippers to our customers since 2004.
-  </div>
-  <div class="tabcontent tabcontent2">
-    <br />
-    <p>
-      All of our footwear is sent tracked and should be with you within a few days of your purchase, please do contact us if your footwear has not arrived within a week of purchase.
-    </p>
-    <br /><br />
-  </div>
-  <div class="tabcontent tabcontent3">
-    We offer a no quibble guarantee, if you are unhappy with your purchase simply return it for a refund, all of our returns are dealt with through eBay's return system.
-  </div>
+<div id="topBar">
+  <input type="text" id="barcodeInput" placeholder="Enter or scan barcode" autofocus />
+  <span id="boxCount">Box count: 0</span>
+  <button id="clearBtn">Clear</button>
 </div>
-<!-- REPLACED TABS END -->
 
-                        </div>
-                      </div>
-                      <div class="category-products" style="font-family: Arial; font-size: large;"></div>
-                    </div>
-                    <div class="col-left sidebar" style="font-family: Arial; font-size: large;">
-                      <ul>
-                        <b>
-                          <li>
-                            <a target="_blank" href="https://www.ebay.co.uk/str/Hariz-and-Family/Mens-Leather-Slippers/_i.html?_storecat=3515272419">
-                              <p style="text-align:center;">Men's Leather Slippers</p>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://www.ebay.co.uk/str/Hariz-and-Family/Mens-Leather-Slippers/_i.html?_storecat=3515272419">
-                              <img src="https://umborcl.github.io/slipp/pics/cat1.jpg" alt="" />
-                            </a>
-                          </li>
-                          <li>
-                            <a target="_blank" href="https://www.ebay.co.uk/str/harizandfamily/Womens-leather-slippers/_i.html?_storecat=3515272519">
-                              <p style="text-align:center;">Women's Leather Slippers</p>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://www.ebay.co.uk/str/harizandfamily/Womens-leather-slippers/_i.html?_storecat=3515272519">
-                              <img src="https://umborcl.github.io/slipp/pics/cat2.jpg" alt="" />
-                            </a>
-                          </li>
-                          <li>
-                            <a target="_blank" href="https://www.ebay.co.uk/str/Hariz-and-Family/Mens-Womens-clogs/_i.html?_storecat=3515272619">
-                              <p style="text-align:center;">Men's &amp; Women's Clogs</p>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://www.ebay.co.uk/str/Hariz-and-Family/Mens-Womens-clogs/_i.html?_storecat=3515272619">
-                              <img src="https://umborcl.github.io/slipp/pics/cat3.jpg" alt="" />
-                            </a>
-                          </li>
-                          <li>
-                            <a target="_blank" href="https://www.ebay.co.uk/str/harizandfamily/Mens-Sheepskin-Slippers/_i.html?_storecat=3515272719">
-                              <p style="text-align:center;">Men's Sheepskin Slippers</p>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://www.ebay.co.uk/str/harizandfamily/Mens-Sheepskin-Slippers/_i.html?_storecat=3515272719">
-                              <img src="https://umborcl.github.io/slipp/pics/cat4.jpg" alt="" />
-                            </a>
-                          </li>
-                          <li>
-                            <a target="_blank" href="https://www.ebay.co.uk/str/harizandfamily/Womens-Sheepskin-Slippers/_i.html?_storecat=3515272819">
-                              <p style="text-align:center;">Women's Sheepskin Slippers</p>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://www.ebay.co.uk/str/harizandfamily/Womens-Sheepskin-Slippers/_i.html?_storecat=3515272819">
-                              <img src="https://umborcl.github.io/slipp/pics/cat5.jpg" alt="" />
-                            </a>
-                          </li>
-                          <li>
-                            <a target="_blank" href="https://www.ebay.co.uk/str/harizandfamily/Womens-Sandals/_i.html?_storecat=3515272919">
-                              <p style="text-align:center;">Women's Sandals</p>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://www.ebay.co.uk/str/harizandfamily/Womens-Sandals/_i.html?_storecat=3515272919">
-                              <img src="https://umborcl.github.io/slipp/pics/cat6.jpg" alt="" />
-                            </a>
-                          </li>
-                        </b>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <center style="font-size: large; font-family: Arial;">Copyright Slippers4U | All Rights Reserved</center>
-          <div class="item_summary" vocab="https://schema.org/" typeof="Product">
-            <span property="description"
-              ><b
-                >We sell a wide range of 100% leather slip on slippers and warm sheepskin slippers.We also sell clogs suitable for work and leisure and sandals.See our special offers!</b
-              ></span
-            >
-          </div>
-          <b style="font-size: large; font-family: Arial;"></b>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</font>
+<div id="qrcodeContainer">
+  <img id="qrcodeImage" alt="QR code will appear here">
+</div>
 
+<script>
+const input = document.getElementById('barcodeInput');
+const boxCount = document.getElementById('boxCount');
+const clearBtn = document.getElementById('clearBtn');
+const qrImage = document.getElementById('qrcodeImage');
+
+async function updateQR() {
+    const text = input.value;
+    // Remove dashes, replace | with %0D
+    const corrected = text.replace(/-/g, '').replace(/\|/g, '%0D');
+
+    // Update box count
+    const count = (corrected.match(/%0D/g) || []).length + 1;
+    boxCount.textContent = 'Box count: ' + count;
+
+    if (corrected.length === 0) {
+        qrImage.src = '';
+        return;
+    }
+
+    // Call backend API to generate proper QR
+    try {
+        const resp = await fetch(`https://your-vercel-app.vercel.app/api/qr?text=${encodeURIComponent(corrected)}`);
+        const blob = await resp.blob();
+        qrImage.src = URL.createObjectURL(blob);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+// Update QR on input
+input.addEventListener('input', updateQR);
+
+// Clear
+clearBtn.addEventListener('click', () => {
+    input.value = '';
+    boxCount.textContent = 'Box count: 0';
+    qrImage.src = '';
+    input.focus();
+});
+</script>
+
+</body>
+</html>
