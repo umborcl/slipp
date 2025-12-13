@@ -6,32 +6,12 @@
 <title>Zebra QR Generator</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 20px; }
-  #topBar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  #barcodeInput {
-    flex: 1;
-    padding: 10px;
-    font-size: 18px;
-  }
-  #boxCount {
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  #clearBtn {
-    padding: 5px 10px;
-    font-size: 14px;
-  }
-  #qrcodeContainer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  #qrcodeImage {
-    max-width: 80vw;
-  }
+  #topBar { display: flex; align-items: center; gap: 10px; }
+  #barcodeInput { flex: 1; padding: 10px; font-size: 18px; }
+  #boxCount { font-size: 16px; white-space: nowrap; }
+  #clearBtn { padding: 5px 10px; font-size: 14px; }
+  #qrcodeContainer { margin-top: 20px; display: flex; justify-content: center; }
+  #qrcodeImage { max-width: 80vw; }
 </style>
 </head>
 <body>
@@ -54,21 +34,17 @@ const qrImage = document.getElementById('qrcodeImage');
 
 async function updateQR() {
     const text = input.value;
-    // Remove dashes, replace | with %0D
     const corrected = text.replace(/-/g, '').replace(/\|/g, '%0D');
-
-    // Update box count
     const count = (corrected.match(/%0D/g) || []).length + 1;
     boxCount.textContent = 'Box count: ' + count;
 
-    if (corrected.length === 0) {
+    if (!corrected) {
         qrImage.src = '';
         return;
     }
 
-    // Call backend API to generate proper QR
     try {
-        const resp = await fetch(`https://your-vercel-app.vercel.app/api/qr?text=${encodeURIComponent(corrected)}`);
+        const resp = await fetch(`https://YOUR_VERCEL_APP.vercel.app/api/qr?text=${encodeURIComponent(corrected)}`);
         const blob = await resp.blob();
         qrImage.src = URL.createObjectURL(blob);
     } catch (e) {
@@ -76,10 +52,8 @@ async function updateQR() {
     }
 }
 
-// Update QR on input
 input.addEventListener('input', updateQR);
 
-// Clear
 clearBtn.addEventListener('click', () => {
     input.value = '';
     boxCount.textContent = 'Box count: 0';
