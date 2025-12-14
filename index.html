@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>DHL QR Manual Live</title>
 
-    <!-- html5-qrcode -->
+    <!-- QR generator (local) -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+    <!-- Camera QR scanner -->
     <script src="https://unpkg.com/html5-qrcode@2.3.10/html5-qrcode.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +17,11 @@
 
 <div class="app">
 
-    <!-- Input -->
+    <!-- Input row -->
     <div class="row">
         <input type="text" id="barcodeInput" placeholder="Enter or Scan Barcode">
         <button onclick="clearInput()">Clear</button>
-        <button id="cameraBtn" class="hidden" onclick="toggleCamera()">📷 Camera</button>
+        <button id="cameraBtn" onclick="startCamera()" style="display:none;">📷</button>
     </div>
 
     <!-- Box counter -->
@@ -26,22 +29,20 @@
         Box count: <span id="boxCount">0</span>
     </div>
 
-    <!-- Camera -->
-    <div id="cameraBox" class="camera-box"></div>
-
     <!-- QR -->
     <div id="qrContainer"></div>
 
+    <!-- Camera -->
+    <div id="reader" style="display:none;"></div>
+
 </div>
 
-<!-- Mode switch (вместо Mode текста) -->
-<div class="mode-switch">
-    <button id="modeBtn" onclick="toggleMode()">🔫 Scanner Gun</button>
-</div>
-
-<!-- Copyright -->
-<div class="copyright">
-    ©2026 A. Kalnins · Internal use · Lloyds Transport
+<!-- Bottom bar -->
+<div class="bottom-bar">
+    <button id="modeBtn" onclick="toggleMode()">Mode: Scanner Gun</button>
+    <div class="copyright">
+        ©2026 A. Kalnins · Internal use · Lloyds Transport
+    </div>
 </div>
 
 <script src="script.js"></script>

@@ -1,35 +1,32 @@
 const input = document.getElementById("barcodeInput");
 const qrContainer = document.getElementById("qrContainer");
 const boxCount = document.getElementById("boxCount");
-const cameraBox = document.getElementById("cameraBox");
-const cameraBtn = document.getElementById("cameraBtn");
 const modeBtn = document.getElementById("modeBtn");
+const cameraBtn = document.getElementById("cameraBtn");
+const reader = document.getElementById("reader");
 
 let confirmedBoxes = [];
-let mode = "scanner"; // scanner | phone
-let qrCamera = null;
-let cameraActive = false;
+let mode = "scanner"; // scanner | camera
+let html5Qr = null;
 
-/* ---------- Scanner Gun mode ---------- */
+// ENTER / Scanner Gun
 input.addEventListener("keydown", (e) => {
     if (mode !== "scanner") return;
 
     if (e.key === "Enter") {
+        handleInput(input.value);
         e.preventDefault();
-        processInput(input.value);
     }
 });
 
-/* ---------- Общая обработка ---------- */
-function processInput(text) {
-    text = text.trim();
+// Process input
+function handleInput(value) {
+    let text = value.trim();
     if (!text) return;
 
-    // убираем "-"
     text = text.replace(/-/g, "");
 
-    // разбиваем по |
-    const boxes = text.split("|").map(b => b.trim()).filter(Boolean);
+    let boxes = text.split("|").map(b => b.trim()).filter(b => b);
 
     boxes.forEach(box => {
         if (!confirmedBoxes.includes(box)) {
@@ -37,82 +34,74 @@ function processInput(text) {
         }
     });
 
-    updateUI();
-}
-
-/* ---------- UI ---------- */
-function updateUI() {
     input.value = confirmedBoxes.join("|") + "|";
     boxCount.textContent = confirmedBoxes.length;
 
-    // настоящий Carriage Return
+    generateQR();
+}
+
+// QR generation (REAL CR)
+function generateQR() {
+    qrContainer.innerHTML = "";
     const qrData = confirmedBoxes.join("\r");
 
-    qrContainer.innerHTML =
-        `<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(qrData)}" alt="QR">`;
+    new QRCode(qrContainer, {
+        text: qrData,
+        width: 260,
+        height: 260
+    });
 }
 
-/* ---------- Переключение режима ---------- */
-function toggleMode() {
+// Clear
+function clearInput() {
+    input.value = "";
+    qrContainer.innerHTML = "";
+    confirmedBoxes = [];
+    boxCount.textContent = 0;
     stopCamera();
+}
 
+// MODE SWITCH
+function toggleMode() {
     if (mode === "scanner") {
-        mode = "phone";
-        modeBtn.textContent = "📱 Phone Camera";
-        cameraBtn.classList.remove("hidden");
+        mode = "camera";
+        modeBtn.textContent = "Mode: Phone Camera";
+        cameraBtn.style.display = "inline-block";
+        reader.style.display = "block";
+        input.blur();
     } else {
         mode = "scanner";
-        modeBtn.textContent = "🔫 Scanner Gun";
-        cameraBtn.classList.add("hidden");
-    }
-}
-
-/* ---------- Камера ---------- */
-function toggleCamera() {
-    if (cameraActive) {
+        modeBtn.textContent = "Mode: Scanner Gun";
+        cameraBtn.style.display = "none";
+        reader.style.display = "none";
         stopCamera();
-    } else {
-        startCamera();
+        input.focus();
     }
 }
 
+// CAMERA
 function startCamera() {
-    cameraActive = true;
-    cameraBtn.textContent = "❌ Close Camera";
+    if (html5Qr) return;
 
-    cameraBox.innerHTML = `<div id="reader" style="width:100%;"></div>`;
+    html5Qr = new Html5Qrcode("reader");
 
-    // КРИТИЧЕСКИ ВАЖНО для Android
-    setTimeout(() => {
-        qrCamera = new Html5Qrcode("reader");
-
-        qrCamera.start(
-            { facingMode: "environment" },
-            { fps: 10, qrbox: 250 },
-            (decodedText) => {
-                processInput(decodedText);
-            }
-        );
-    }, 300);
+    html5Qr.start(
+        { facingMode: "environment" },
+        { fps: 10, qrbox: 250 },
+        (decodedText) => {
+            handleInput(decodedText);
+        }
+    ).catch(err => {
+        console.error(err);
+        alert("Camera error");
+    });
 }
 
 function stopCamera() {
-    cameraActive = false;
-    cameraBtn.textContent = "📷 Camera";
-
-    if (qrCamera) {
-        qrCamera.stop().then(() => {
-            cameraBox.innerHTML = "";
-        }).catch(() => {});
-        qrCamera = null;
+    if (html5Qr) {
+        html5Qr.stop().then(() => {
+            html5Qr.clear();
+            html5Qr = null;
+        });
     }
-}
-
-/* ---------- Очистка ---------- */
-function clearInput() {
-    confirmedBoxes = [];
-    input.value = "";
-    qrContainer.innerHTML = "";
-    boxCount.textContent = 0;
-    stopCamera();
 }

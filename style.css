@@ -1,24 +1,23 @@
-html, body {
-    height: 100%;
-    margin: 0;
+* {
+    box-sizing: border-box;
 }
 
 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: Arial, sans-serif;
-    background: #ffffff;
 }
 
-/* Основной контейнер */
 .app {
     flex: 1;
-    padding: 16px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
 }
 
-/* Верхняя строка */
 .row {
     display: flex;
     gap: 8px;
@@ -36,55 +35,41 @@ button {
     cursor: pointer;
 }
 
-/* Счётчик */
 .box-count {
     margin-top: 8px;
     font-size: 14px;
 }
 
-/* Камера */
-.camera-box {
-    width: 100%;
-    max-height: 40vh;
-    margin-top: 10px;
-}
-
-/* QR */
 #qrContainer {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 12px;
 }
 
-/* Переключатель режима */
-.mode-switch {
-    position: sticky;
-    bottom: 26px;
-    text-align: center;
+#reader {
+    margin-top: 10px;
 }
 
-.mode-switch button {
-    padding: 6px 18px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    background: #f4f4f4;
+/* Bottom fixed bar */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-bar button {
     font-size: 13px;
 }
 
-/* Копирайт */
 .copyright {
-    position: sticky;
-    bottom: 0;
+    font-size: 11px;
+    color: #777;
     text-align: center;
-    font-size: 10px;
-    color: #999;
-    padding: 6px 0;
-    background: #ffffff;
-}
-
-/* Скрытие */
-.hidden {
-    display: none;
 }
