@@ -60,9 +60,10 @@ cameraBtn.addEventListener("click", () => {
 });
 
 function openCamera() {
-    cameraOverlay.style.display = "flex";
-    html5QrCode = new Html5Qrcode("reader");
+cameraOverlay.style.display = "flex";
+html5QrCode = new Html5Qrcode("reader");
 
+setTimeout(() => {
     Html5Qrcode.getCameras().then(cameras => {
         if (cameras && cameras.length) {
             html5QrCode.start(
@@ -80,6 +81,7 @@ function openCamera() {
         console.error(err);
         alert("Ошибка при доступе к камере");
     });
+}, 100); // 100 мс задержка
 }
 
 function closeCamera() {
