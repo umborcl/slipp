@@ -2,47 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DHL QR Manual Live</title>
-
-    <!-- QR generator (local) -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-
-    <!-- Camera QR scanner -->
-    <script src="https://unpkg.com/html5-qrcode@2.3.10/html5-qrcode.min.js"></script>
-
+    <title>DHL QR ScannerGun + Camera</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
+    <!-- QR генератор -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+    <!-- HTML5 QR Code для камеры -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.10/html5-qrcode.min.js"></script>
 </head>
 <body>
-
 <div class="app">
 
-    <!-- Input row -->
     <div class="row">
-        <input type="text" id="barcodeInput" placeholder="Enter or Scan Barcode">
+        <input type="text" id="barcodeInput" placeholder="Enter or scan barcode">
         <button onclick="clearInput()">Clear</button>
-        <button id="cameraBtn" onclick="startCamera()" style="display:none;">📷</button>
+        <button id="cameraBtn">📷</button>
     </div>
 
-    <!-- Box counter -->
     <div class="box-count">
         Box count: <span id="boxCount">0</span>
     </div>
 
-    <!-- QR -->
     <div id="qrContainer"></div>
-
-    <!-- Camera -->
-    <div id="reader" style="display:none;"></div>
-
 </div>
 
-<!-- Bottom bar -->
-<div class="bottom-bar">
-    <button id="modeBtn" onclick="toggleMode()">Mode: Scanner Gun</button>
-    <div class="copyright">
-        ©2026 A. Kalnins · Internal use · Lloyds Transport
-    </div>
+<div class="copyright">
+    ©2026 A. Kalnins · Internal use · Lloyds Transport · v.1.0
+</div>
+
+<div id="cameraOverlay" class="camera-overlay">
+    <div id="reader"></div>
+    <button class="close-btn" onclick="closeCamera()">Close</button>
 </div>
 
 <script src="script.js"></script>
