@@ -1,20 +1,27 @@
-body {
+html, body {
+    height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+}
+
+/* Основной контейнер */
 .app {
     flex: 1;
     padding: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Верхняя строка */
 .row {
     display: flex;
-    gap: 6px;
+    gap: 8px;
 }
 
 input {
@@ -24,64 +31,60 @@ input {
 }
 
 button {
-    padding: 10px 12px;
+    padding: 10px 14px;
     font-size: 14px;
     cursor: pointer;
 }
 
+/* Счётчик */
 .box-count {
     margin-top: 8px;
     font-size: 14px;
 }
 
-#qrContainer {
-    margin-top: 16px;
-    display: flex;
-    justify-content: center;
+/* Камера */
+.camera-box {
+    width: 100%;
+    max-height: 40vh;
+    margin-top: 10px;
 }
 
-.camera-box {
+/* QR */
+#qrContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 12px;
 }
 
-.hidden {
-    display: none;
-}
-
-.mode-indicator {
-    text-align: center;
-    font-size: 11px;
-    color: #666;
-    margin-bottom: 4px;
-}
-/* режимы */
+/* Переключатель режима */
 .mode-switch {
+    position: sticky;
+    bottom: 26px;
     text-align: center;
-    margin: 6px 0;
 }
 
 .mode-switch button {
-    font-size: 13px;
-    padding: 6px 14px;
+    padding: 6px 18px;
     border-radius: 20px;
-    background: #f3f3f3;
     border: 1px solid #ccc;
+    background: #f4f4f4;
+    font-size: 13px;
 }
 
-/* камера */
-.camera-box {
-    margin-top: 12px;
-}
-
-/* скрытие */
-.hidden {
-    display: none;
-}
-
-
+/* Копирайт */
 .copyright {
+    position: sticky;
+    bottom: 0;
     text-align: center;
     font-size: 10px;
     color: #999;
     padding: 6px 0;
+    background: #ffffff;
+}
+
+/* Скрытие */
+.hidden {
+    display: none;
 }
