@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app {
+    flex: 1;
+    padding: 16px;
+}
+
+.row {
+    display: flex;
+    gap: 6px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.box-count {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+#qrContainer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.camera-box {
+    margin-top: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+.mode-indicator {
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 4px;
+}
+/* режимы */
+.mode-switch {
+    text-align: center;
+    margin: 6px 0;
+}
+
+.mode-switch button {
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+}
+
+/* камера */
+.camera-box {
+    margin-top: 12px;
+}
+
+/* скрытие */
+.hidden {
+    display: none;
+}
+
+
+.copyright {
+    text-align: center;
+    font-size: 10px;
+    color: #999;
+    padding: 6px 0;
+}
