@@ -10,7 +10,7 @@ let mode = "scanner"; // scanner | phone
 let qrCamera = null;
 let cameraActive = false;
 
-/* ---------- SCANNER MODE ---------- */
+/* ---------- Scanner Gun mode ---------- */
 input.addEventListener("keydown", (e) => {
     if (mode !== "scanner") return;
 
@@ -20,13 +20,15 @@ input.addEventListener("keydown", (e) => {
     }
 });
 
-/* ---------- PROCESS ---------- */
+/* ---------- Общая обработка ---------- */
 function processInput(text) {
     text = text.trim();
     if (!text) return;
 
+    // убираем "-"
     text = text.replace(/-/g, "");
 
+    // разбиваем по |
     const boxes = text.split("|").map(b => b.trim()).filter(Boolean);
 
     boxes.forEach(box => {
@@ -43,12 +45,14 @@ function updateUI() {
     input.value = confirmedBoxes.join("|") + "|";
     boxCount.textContent = confirmedBoxes.length;
 
+    // настоящий Carriage Return
     const qrData = confirmedBoxes.join("\r");
+
     qrContainer.innerHTML =
-        `<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(qrData)}">`;
+        `<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(qrData)}" alt="QR">`;
 }
 
-/* ---------- MODE SWITCH ---------- */
+/* ---------- Переключение режима ---------- */
 function toggleMode() {
     stopCamera();
 
@@ -63,7 +67,7 @@ function toggleMode() {
     }
 }
 
-/* ---------- CAMERA ---------- */
+/* ---------- Камера ---------- */
 function toggleCamera() {
     if (cameraActive) {
         stopCamera();
@@ -76,18 +80,20 @@ function startCamera() {
     cameraActive = true;
     cameraBtn.textContent = "❌ Close Camera";
 
-    cameraBox.innerHTML = `<div id="reader" style="width:100%"></div>`;
+    cameraBox.innerHTML = `<div id="reader" style="width:100%;"></div>`;
 
-    qrCamera = new Html5Qrcode("reader");
+    // КРИТИЧЕСКИ ВАЖНО для Android
+    setTimeout(() => {
+        qrCamera = new Html5Qrcode("reader");
 
-    qrCamera.start(
-        { facingMode: "environment" },
-        { fps: 10, qrbox: 250 },
-        (decodedText) => {
-            processInput(decodedText);
-        },
-        () => {}
-    );
+        qrCamera.start(
+            { facingMode: "environment" },
+            { fps: 10, qrbox: 250 },
+            (decodedText) => {
+                processInput(decodedText);
+            }
+        );
+    }, 300);
 }
 
 function stopCamera() {
@@ -102,10 +108,11 @@ function stopCamera() {
     }
 }
 
-/* ---------- CLEAR ---------- */
+/* ---------- Очистка ---------- */
 function clearInput() {
     confirmedBoxes = [];
     input.value = "";
     qrContainer.innerHTML = "";
     boxCount.textContent = 0;
+    stopCamera();
 }
